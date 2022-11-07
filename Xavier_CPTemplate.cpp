@@ -9,60 +9,77 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define endl            '\n'
-#define cendl           cout<<endl
-#define fastio          ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define int             long long
-#define INF             1e18
-const int MOD =         1e9 + 7; //1000000007
-#define mod1            998244353
-#define PI              3.14159265358979323846
+#define endl                    '\n'
+#define cendl                   cout<<endl
+#define read(x)                 (int x; cin >> x)
+#define readl(y)                (long long y; cin>>y)
+#define fastio                  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 
-/*--short--*/
-#define ll              long long
-#define ld              long double
-#define vi              vector<int>
-#define vll             vector<ll>
-#define pii             pair<ll,ll>
-#define ump             unordered_map
-#define pq_max          priority_queue<ll>
-#define pq_min          priority_queue<ll,vi,greater<ll>>
+
+/*--Other Aliases--*/
+#define int                     long long
+using ll                        = long long;   
+using ull                       = unsigned long long;
+using ld                        = long double;
+#define vi                      vector<int>
+#define vll                     vector<ll>
+#define pii                     pair<ll,ll>
+#define ump                     unordered_map
+#define pq_max                  priority_queue<ll>
+#define pq_min                  priority_queue<ll,vi,greater<ll>>
+
+/*--Constants--*/
+constexpr ll INF                = 2e18;
+constexpr ld EPS                = 1e-9;
+constexpr ll MOD                = 1e9 + 7; //1000000007
+constexpr ll mod1               = 998244353;
+constexpr ld PI                 = 3.14159265358979323846;
 
 
 /*--Loop Macros--*/
-#define FOR(i,a,b)      for(int i = a; i < b; ++i)
-#define FORL(i,a,b)     for(int i = a; i <= b; ++i)
-#define FORR(i,a,b)     for(int i = a; i >= b; --i)
-#define rep(i , var)    for(auto i : var)
+#define FOR(i,a,b)              for(int i = a; i < b; ++i)
+#define FORL(i,a,b)             for(int i = a; i <= b; ++i)
+#define FORR(i,a,b)             for(int i = a; i >= b; --i)
+#define rep(i , var)            for(auto i : var)
 /*--Vector Macros--*/
-#define pb push_back
-#define eb emplace_back
-#define ppb pop_back
+#define pb                      push_back
+#define eb                      emplace_back
+#define ppb                     pop_back
 /*--other macros--*/
-#define sz(x)           ((int)(x).size())
-#define all(x)          ((x).begin(), (x).end())
-#define asc(c)          c.begin(),c.end()
-#define des(c)          c.begin(),c.end(),greater<int>()
-#define ff              first
-#define ss              second
-#define mp(x,y)         make_pair(x,y)
-#define sumOf(c)        accumulate(c.begin(),c.end(),0)
-#define maxOf(c)        *max_element(c.begin(),c.end())
-#define minOf(c)        *min_element(c.begin(),c.end())
-#define getUp(su)       transform(su.begin(), su.end(), su.begin(), ::toupper);
-#define getDown(su)     transform(su.begin(), su.end(), su.begin(), ::tolower);
-#define lb(bin, x)      lower_bound(bin.begin(), bin.end(), x) - bin.begin();
-#define ub(bin, x)      upper_bound(bin.begin(), bin.end(), x) - bin.begin();
+#define sz(x)                   ((int)(x).size())
+#define all(x)                  (begin(x), end(x))
+#define allr(x)                 (rbegin(x), rend(x))
+#define asc(c)                  c.begin(),c.end()
+#define des(c)                  c.begin(),c.end(),greater<int>()
+#define ff                      first
+#define ss                      second
+#define mp(x,y)                 make_pair(x,y)
+#define sumOf(c)                accumulate(c.begin(),c.end(),0)
+#define maxOf(c)                *max_element(c.begin(),c.end())
+#define minOf(c)                *min_element(c.begin(),c.end())
+#define getUp(su)               transform(su.begin(), su.end(), su.begin(), ::toupper);
+#define getDown(su)             transform(su.begin(), su.end(), su.begin(), ::tolower);
+#define lb(bin, x)              lower_bound(bin.begin(), bin.end(), x) - bin.begin();
+#define ub(bin, x)              upper_bound(bin.begin(), bin.end(), x) - bin.begin();
 
+
+/*--bitwise--*/
+#define lshift(x)               (x<<=1)     // x*2
+#define rshift(x)               (x>>=1)     // x/2
+#define odd(x)                  (x & 1)     // true if x%2==1
+#define setbit(num,pos)         (num |= (1 << pos))     // set a bit at 'pos' position in the number ‘num'
+#define unsetbit(num,pos)       (num &= (~(1 << pos)))  // unset a bit at 'pos' position in the number ‘num'
+#define togglebit(num,pos)      (num ^= (1 << pos))     // turn bit ‘on'(1) if it was ‘off'(0)
+#define invert(num)             (~num)  // Inverting every bit of num/1’s complement
 
 /*--Print Functions--*/
 //std outputs
-#define print(x)        (cout<<(x))
-#define println(x)      (cout<<(x)<<endl)
+#define print(x)                (cout<<(x))
+#define println(x)              (cout<<(x)<<endl)
 
 /*--Debug--*/
 #ifndef ONLINE_JUDGE
-#define debug(x)        (cerr <<"<==Testing(#"<<x<<")==>"<< endl)
+#define debug(x)                (cerr <<"<==Testing(#"<<x<<")==>"<< endl)
 #else
 #define debug(x)
 #endif
@@ -89,6 +106,9 @@ ll lcm(ll a, ll b) {return a / gcd(a, b) * b;}
 ll max(ll a, ll b) {return a > b ? a : b;}
 ll min(ll a, ll b) {return a < b ? a : b;}
 ll countDigit(ll n) {return (floor(log10(n) + 1));}
+ll log_a_to_base_b(ll a, ll b) {return log2(a) / log2(b);}
+ll isPowerof2(ll x) {return (x && !(x & x-1));} // Checking if given 64 bit integer is power of 2 
+bool is_whole(ll a) {return (a-floor(a)<1e-9);} // floor(a)==ceil(a)
 
 ll mod(ll x) { return ((x % MOD + MOD) % MOD);}
 // ll addMOD(ll a, ll b) { return (mod(a)+mod(b));}

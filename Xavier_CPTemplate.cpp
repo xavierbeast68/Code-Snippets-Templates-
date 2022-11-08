@@ -11,12 +11,12 @@
 using namespace std;
 #define endl                    '\n'
 #define cendl                   cout<<endl
-#define read(x)                 (int x; cin >> x)
-#define readl(y)                (long long y; cin>>y)
+#define read(x)                 int x; cin >> x;
+#define readl(y)                long long y; cin>>y;
 #define fastio                  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 
 
-/*--Other Aliases--*/
+/*--Aliases--*/
 #define int                     long long
 using ll                        = long long;   
 using ull                       = unsigned long long;
@@ -63,14 +63,16 @@ constexpr ld PI                 = 3.14159265358979323846;
 #define ub(bin, x)              upper_bound(bin.begin(), bin.end(), x) - bin.begin();
 
 
-/*--bitwise--*/
+/*--Operation on bits--*/
+/*
 #define lshift(x)               (x<<=1)     // x*2
 #define rshift(x)               (x>>=1)     // x/2
 #define odd(x)                  (x & 1)     // true if x%2==1
 #define setbit(num,pos)         (num |= (1 << pos))     // set a bit at 'pos' position in the number ‘num'
 #define unsetbit(num,pos)       (num &= (~(1 << pos)))  // unset a bit at 'pos' position in the number ‘num'
 #define togglebit(num,pos)      (num ^= (1 << pos))     // turn bit ‘on'(1) if it was ‘off'(0)
-#define invert(num)             (~num)  // Inverting every bit of num/1’s complement
+#define invert(num)             (~num)  // Inverting every bit of num/1’s complement. Add 1 for 2's complement
+*/
 
 /*--Print Functions--*/
 //std outputs
@@ -83,6 +85,34 @@ constexpr ld PI                 = 3.14159265358979323846;
 #else
 #define debug(x)
 #endif
+
+
+/*--Debugger--*/
+/*
+// std errors
+void _print(ll t) { cerr << t; }
+void _print(ull t) { cerr << t; }
+void _print(double t) { cerr << t; }
+void _print(ld t) { cerr << t; }
+void _print(char t) { cerr << t; }
+void _print(string t) { cerr << t; }
+
+//--Debug--
+//#define debugO(i) (cout<<"(#"<<i<<")"<<endl)
+#ifndef ONLINE_JUDGE
+#define debug(x)                cerr <<"(#"; _print(x); cerr <<")"<< endl;
+#else
+#define debug(x)
+#endif
+//--Debug File(Debug stderr statements to a file)
+void debugf()
+{
+#ifndef ONLINE_JUDGE
+    freopen("debug.txt", "w", stderr);
+#endif
+}
+*/
+
 
 /*--InputOutputError_From/To_File*/
 void file_io()
@@ -169,13 +199,20 @@ vector<T> readvector(T n)
     return arr;
 }// vector<ll> arr = readvector(n);
 
+template <class T>
+void printvector(vector<T> arr,T n)
+{
+    for (int i = 0; i < n; i++)
+        cout << arr[i] <<" ";
+    cout<<endl;
+}
+
 /*-----------------------------------||| Here We Go!!! |||-----------------------------------*/
 
 
 void solve()
 {
     /*--Let's Code--*/
-
 }
 
 signed main()

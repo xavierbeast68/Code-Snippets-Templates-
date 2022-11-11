@@ -7,6 +7,10 @@
  */
 
 
+/*--GCC Optimizations--*/
+// #pragma GCC optimize("O3,Ofast,unroll-loops")
+// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt") // platform with no avx2 support, switch out the avx2 with avx
+
 #include <bits/stdc++.h>
 using namespace std;
 #define endl                    '\n'
@@ -139,14 +143,12 @@ ll log_a_to_base_b(ll a, ll b)  {return log2(a) / log2(b);}
 ll isPowerof2(ll x)             {return (x && !(x & x - 1));} // Checking if given 64 bit integer is power of 2
 bool is_whole(ll a)             {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)      {if (p <= 1) {return 1;} return p * factorial(p - 1);}
+bool isPrime(const long long& p) {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}
+ll binpow(ll a , ll b)           {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % MOD, b / 2);} if (b % 2 == 1) {return (a * binpow((a * a) % MOD, b / 2)) % MOD;}}
 
 ll mod(ll x)                    {return ((x % MOD + MOD) % MOD);}
 // ll addMOD(ll a, ll b)        {return (mod(a)+mod(b));}
 // ll mul(ll a, ll b)           {return (mod(a)*mod(b));}
-
-bool isPrime(const long long& p) {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}
-
-ll power(ll a , ll b)           {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return power((a * a) % MOD, b / 2);} if (b % 2 == 1) {return (a * power((a * a) % MOD, b / 2)) % MOD;}}
 
 /*-----------------------------------Template Classes-----------------------------------*/
 
@@ -173,7 +175,6 @@ void printvector(vector<T> arr, T n)
 void solve()
 {
     /*--Let's Code--*/
-    cout << power(4, 2) << endl;
 }
 
 signed main()

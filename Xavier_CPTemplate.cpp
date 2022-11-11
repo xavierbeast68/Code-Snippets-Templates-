@@ -90,33 +90,6 @@ constexpr ld PI                 = 3.14159265358979323846;
 #endif
 
 
-/*--Debugger--*/
-/*
-// std errors
-void _print(ll t) { cerr << t; }
-void _print(ull t) { cerr << t; }
-void _print(double t) { cerr << t; }
-void _print(ld t) { cerr << t; }
-void _print(char t) { cerr << t; }
-void _print(string t) { cerr << t; }
-
-//--Debug--
-//#define debugO(i) (cout<<"(#"<<i<<")"<<endl)
-#ifndef ONLINE_JUDGE
-#define debug(x)                cerr <<"(#"; _print(x); cerr <<")"<< endl;
-#else
-#define debug(x)
-#endif
-//--Debug File(Debug stderr statements to a file)
-void debugf()
-{
-#ifndef ONLINE_JUDGE
-    freopen("debug.txt", "w", stderr);
-#endif
-}
-*/
-
-
 /*--InputOutputError_From/To_File*/
 void file_io()
 {
@@ -129,7 +102,7 @@ void file_io()
 
 
 /*--Execution Time--*/
-void execTime()                 {cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;}
+// void execTime()                 {cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;}
 
 
 /*----------------------------------------Functions----------------------------------------*/
@@ -179,9 +152,15 @@ void solve()
 
 signed main()
 {
-
     fastio;
     //file_io();
+
+    /*--Execution Time Start->--*/
+    /*
+    #ifndef ONLINE_JUDGE
+    clock_t start = clock();
+    #endif
+    */
 
     /*t=1: default value for single test case*/
     int t = 1;
@@ -191,7 +170,14 @@ signed main()
         solve();
     }
 
-    //execTime();
+    /*--Execution Time End->--*/
+    /*
+    #ifndef ONLINE_JUDGE
+    clock_t end = clock();
+    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+    cerr << "Execution time : " << time_taken << "secs";
+    #endif
+    */
 
     fflush(stdout);
 

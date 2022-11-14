@@ -22,14 +22,8 @@ using namespace std;
 
 /*--Aliases--*/
 using ll                                = long long;
-using ull                               = unsigned long long;
 using ld                                = long double;
 #define vi                              vector<int>
-#define vll                             vector<ll>
-#define pii                             pair<ll,ll>
-#define ump                             unordered_map
-#define pq_max                          priority_queue<ll>
-#define pq_min                          priority_queue<ll,vi,greater<ll>>
 
 /*--Constants--*/
 constexpr ll INF                        = 2e18;
@@ -51,9 +45,6 @@ constexpr ld PI                         = 3.14159265358979323846;
 /*--other macros--*/
 #define sz(x)                           (int)(x).size()
 #define all(x)                          begin(x), end(x)
-#define allr(x)                         rbegin(x), rend(x)
-#define asc(c)                          c.begin(),c.end()
-#define des(c)                          c.begin(),c.end(),greater<int>()
 #define ff                              first
 #define ss                              second
 #define mp(x,y)                         make_pair(x,y)
@@ -66,43 +57,10 @@ constexpr ld PI                         = 3.14159265358979323846;
 #define ub(arr, x)                      upper_bound(arr.begin(), arr.end(), x) - arr.begin();
 
 
-/*--Operation on bits--*/
-/*
-#define lshift(x)                       x<<=1     // x*2
-#define rshift(x)                       x>>=1     // x/2
-#define odd(x)                          x & 1     // true if x%2==1
-#define setbit(num,pos)                 num |= (1 << pos)     // set a bit at 'pos' position in the number ‘num'
-#define unsetbit(num,pos)               num &= (~(1 << pos))  // unset a bit at 'pos' position in the number ‘num'
-#define togglebit(num,pos)              num ^= (1 << pos)     // turn bit ‘on'(1) if it was ‘off'(0)
-#define invert(num)                     ~num  // Inverting every bit of num/1’s complement. Add 1 for 2's complement
-*/
-
 /*--Print Functions--*/
 //std outputs
 #define print(x)                        cout<<(x)
 #define println(x)                      cout<<(x)<<endl
-
-/*--Debug--*/
-#ifndef ONLINE_JUDGE
-#define debug(x)                        cerr <<"<==Testing(#"<<x<<")==>"<< endl
-#else
-#define debug(x)
-#endif
-
-
-/*--InputOutputError_From/To_File*/
-void file_io()
-{
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    //freopen("error.txt", "w", stderr);
-#endif
-}
-
-
-/*--Execution Time--*/
-// void execTime()                      {cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;}
 
 
 /*----------------------------------------Functions----------------------------------------*/
@@ -112,35 +70,10 @@ ll lcm(ll a, ll b)                      {return a / gcd(a, b) * b;}
 ll max(ll a, ll b)                      {return a > b ? a : b;}
 ll min(ll a, ll b)                      {return a < b ? a : b;}
 ll countDigit(ll n)                     {return (floor(log10(n) + 1));}
-ll log_a_to_base_b(ll a, ll b)          {return log2(a) / log2(b);}
-ll isPowerof2(ll x)                     {return (x && !(x & x - 1));} // Checking if given 64 bit integer is power of 2
-bool is_whole(ll a)                     {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)              {if (p <= 1) {return 1;} return p * factorial(p - 1);}
 bool isPrime(const long long& p)        {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}
 ll binpow(ll a , ll b)                  {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % MOD, b / 2);} else {return (a * binpow((a * a) % MOD, b / 2)) % MOD;}}
 
-ll mod(ll x)                            {return ((x % MOD + MOD) % MOD);}
-// ll addMOD(ll a, ll b)                {return (mod(a)+mod(b));}
-// ll mul(ll a, ll b)                   {return (mod(a)*mod(b));}
-
-/*-----------------------------------Template Classes-----------------------------------*/
-
-template <class T>
-vector<T> readvector(T n)
-{
-    vector<T> arr(n);
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    return arr;
-}// vector<ll> arr = readvector(n);
-
-template <class T>
-void printvector(vector<T> arr, T n)
-{
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
 
 /*-----------------------------------||| Here We Go!!! |||-----------------------------------*/
 
@@ -153,14 +86,6 @@ void solve()
 signed main()
 {
     fastio;
-    //file_io();
-
-    /*--Execution Time Start->--*/
-    /*
-    #ifndef ONLINE_JUDGE
-    clock_t start = clock();
-    #endif
-    */
 
     /*t=1: default value for single test case*/
     int t = 1;
@@ -169,15 +94,6 @@ signed main()
     {
         solve();
     }
-
-    /*--Execution Time End->--*/
-    /*
-    #ifndef ONLINE_JUDGE
-    clock_t end = clock();
-    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-    cerr << "Execution time : " << time_taken << "secs";
-    #endif
-    */
 
     fflush(stdout);
 

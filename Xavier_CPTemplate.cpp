@@ -11,6 +11,7 @@
 // #pragma GCC optimize("O3,Ofast,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt") // platform with no avx2 support, switch out the avx2 with avx
 
+
 #include <bits/stdc++.h>
 using namespace std;
 #define endl                            '\n'
@@ -101,8 +102,25 @@ void file_io()
 }
 
 
-/*--Execution Time--*/
+/*--Execution Time macro-1--*/
 // void execTime()                      {cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;}
+
+/*--Execution Time macro-2--*/
+clock_t startClock()
+{
+#ifndef ONLINE_JUDGE
+    clock_t start = clock();
+    return start;
+#endif
+}
+void endClock(clock_t start)
+{
+#ifndef ONLINE_JUDGE
+    clock_t end = clock();
+    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+    cerr << "Execution time : " << time_taken << "secs";
+#endif
+}
 
 
 /*----------------------------------------Functions----------------------------------------*/
@@ -116,8 +134,10 @@ ll log_a_to_base_b(ll a, ll b)          {return log2(a) / log2(b);}
 ll isPowerof2(ll x)                     {return (x && !(x & x - 1));} // Checking if given 64 bit integer is power of 2
 bool is_whole(ll a)                     {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)              {if (p <= 1) {return 1;} return p * factorial(p - 1);}
-bool isPrime(const long long& p)        {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}
+// bool isPrime(const long long& p)        {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}    //Using Wilson Primality Test->O(N)
+bool isPrime(ll n)                      {if (n == 2 || n == 3) {return true;} if (n <= 1 || n % 2 == 0 || n % 3 == 0) {return false;}/* To check through all numbers of the form 6k ± 1*/ for (int i = 5; i * i <= n; i += 6) { if (n % i == 0 || n % (i + 2) == 0) {return false;}} return true;} // O(sqrt(N))
 ll binpow(ll a , ll b)                  {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % MOD, b / 2);} else {return (a * binpow((a * a) % MOD, b / 2)) % MOD;}}
+ll binomial_Coefficient(ll n, ll r)     {ll n_fact= factorial(n);ll r_fact= factorial(r);ll nmr_fact= factorial(n-r);return (n_fact/(r_fact*nmr_fact));}
 
 ll mod(ll x)                            {return ((x % MOD + MOD) % MOD);}
 // ll addMOD(ll a, ll b)                {return (mod(a)+mod(b));}
@@ -155,12 +175,7 @@ signed main()
     fastio;
     //file_io();
 
-    /*--Execution Time Start->--*/
-    /*
-    #ifndef ONLINE_JUDGE
-    clock_t start = clock();
-    #endif
-    */
+    // clock_t start=startClock();
 
     /*t=1: default value for single test case*/
     int t = 1;
@@ -170,14 +185,7 @@ signed main()
         solve();
     }
 
-    /*--Execution Time End->--*/
-    /*
-    #ifndef ONLINE_JUDGE
-    clock_t end = clock();
-    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-    cerr << "Execution time : " << time_taken << "secs";
-    #endif
-    */
+    //endClock(start);
 
     fflush(stdout);
 

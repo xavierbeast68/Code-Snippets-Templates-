@@ -131,7 +131,7 @@ ll max(ll a, ll b)                      {return a > b ? a : b;}
 ll min(ll a, ll b)                      {return a < b ? a : b;}
 ll countDigit(ll n)                     {return (floor(log10(n) + 1));}
 ll log_a_to_base_b(ll a, ll b)          {return log2(a) / log2(b);}
-ll isPowerof2(ll x)                     {return (x && !(x & x - 1));} // Checking if given 64 bit integer is power of 2
+ll isPowerof2(ll x)                     {return (x && !(x & (x - 1)));} // Checking if given 64 bit integer is power of 2
 bool is_whole(ll a)                     {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)              {if (p <= 1) {return 1;} return p * factorial(p - 1);}
 // bool isPrime(const long long& p)        {if (p == 4) {return false;} /*(p - 1) ! ≡  (p-1) mod p*/ ll a = factorial(p - 1) % p; if (a == p - 1) {return true;} return false;}    //Using Wilson Primality Test->O(N)

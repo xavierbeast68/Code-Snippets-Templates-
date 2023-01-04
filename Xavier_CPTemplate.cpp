@@ -133,7 +133,7 @@ typedef tree<pair<int, int>, null_type, less_equal<pair<int, int>>, rb_tree_tag,
 
 /*--------------------------------------------------------------Debugger--------------------------------------------------------------*/
 
-#define Testing(i)                      cout<<"(#"<<i<<")"<<endl
+#define testing(i)                      cout << "(#" << i << ")" << endl
 
 #ifndef ONLINE_JUDGE
 #define dbg(x)                          cerr << #x<<" "; _print(x); cerr << endl;

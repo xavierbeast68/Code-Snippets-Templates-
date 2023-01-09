@@ -119,27 +119,18 @@ template <class T> void printvector(vector<T> arr, T n) {for (int i = 0; i < n; 
 /*
 * order_of_key(k): Returns the number of elements strictly smaller than k.
 * find_by_order(k): Returns the address of the element at kth index in the set while using zero-based indexing, i.e the first element is at index zero.
+
+Ordered Set & Multiset ->
+ost.find_by_order(x) -> returns pointer, ost.order_of_key(y) -> returns index, (int)ost.size() -> needs to be typecasted
+key y is not in the set but it will show the index number if it was there in the sorted array
+
+Ordered set of pairs (Ordered Map & Multimap) ->
+om.find_by_order(x)->first, om.find_by_order(x)->second , om.order_of_key({ x, y })
+Pair {x, y1} is not in the ordered set but it will show the index number if it was there in sorted array
 */
 
-template <class T> using ordered_pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;     
-// ordered_pbds <T> a; (work as ordered_set) 
-// ordered_pbds <pair<T, T>> a; (work as ordered_map)
-template <class T> using multi_ordered_pbds = tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;      
-// multi_ordered_pbds <T> a; (work as multi_ordered_set) 
-// multi_ordered_pbds <pair<T,T>> a; (work as multi_ordered_map)
-
-
-// Ordered Set & Multiset for int only->
-// typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;     // only for int type: ordered_set a;
-// typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_multiset;      // only for int type: ordered_multiset a;
-// ost.find_by_order(x) -> returns pointer, ost.order_of_key(y) -> returns index, (int)ost.size() -> needs to be typecasted
-// key y is not in the set but it will show the index number if it was there in sorted array
-
-// Ordered Map & Multimap for int only->
-// typedef tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update> ordered_map;       // only for int type: ordered_map a;
-// typedef tree<pair<int, int>, null_type, less_equal<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update> ordered_multimap;        // only for int type: ordered_multimap a;
-// om.find_by_order(x)->first, om.find_by_order(x)->second , om.order_of_key({ x, y })
-// Pair {x, y1} is not in the map but it will show the index number if it was there in sorted array
+template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;     // ordered_set <T> a; (work as ordered_set) // ordered_set <pair<T, T>> a; (ordered set of pairs (can also work as ordered_map))
+template <class T> using multi_ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;      // multi_ordered_set <T> a; // multi_ordered_set <pair<T,T>> a;
 
 
 /*--------------------------------------------------------------Debugger--------------------------------------------------------------*/

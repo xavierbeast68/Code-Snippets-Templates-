@@ -9,7 +9,7 @@
 */
 /**
  * xavierbeast68
- * URL : Problem_Link
+ * URL : Problem_URL
  * AVOIDING COMPLEXITY, REDUCES BUGS.
  */
 
@@ -23,13 +23,13 @@ using namespace std;
 using namespace chrono;
 using namespace __gnu_pbds;
 
-#define fastio                                     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define endl                                       '\n'
-#define int                                        long long
-using ll                                           = long long;
-using ull                                          = unsigned long long;
-using lld                                          = long double;
-#define vi                                         vector<int>
+#define fastio                                      ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl                                        '\n'
+#define int                                         long long
+using ll                                            = long long;
+using ull                                           = unsigned long long;
+using lld                                           = long double;
+#define vi                                          vector<int>
 
 constexpr lld EPS                                   = 1e-9;
 constexpr ll MOD                                    = 1e9 + 7; //1000000007
@@ -45,6 +45,7 @@ constexpr ll mod1                                   = 998244353;
 #define lb(arr, x)                                  lower_bound(arr.begin(), arr.end(), x) - arr.begin();
 #define ub(arr, x)                                  upper_bound(arr.begin(), arr.end(), x) - arr.begin();
 
+
 /*------------------------------------------------------Read & Print Methods------------------------------------------------------*/
 
 #define read(x)                                     int x; cin >> x; // reads long long
@@ -56,6 +57,18 @@ constexpr ll mod1                                   = 998244353;
 template <class T> vector<T> readvector(T n) { vector<T> arr(n); for (int i = 0; i < n; i++) {cin >> arr[i];} return arr;} // vector<ll> arr = readvector(n);
 template <class T> void printvector(vector<T> arr, T n) {for (int i = 0; i < n; i++) {cout << arr[i] << " ";} cout << endl;}
 
+//InputOutputError_From/To_File ->
+void file_io()
+{
+// #ifndef ONLINE_JUDGE
+#ifdef XAVIERBEAST
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    freopen("error.txt", "w", stderr);
+#endif
+}
+
+
 /*----------------------------------------------------------------PBDS----------------------------------------------------------------*/
 
 template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;     // ordered_set <T> a; (work as ordered_set) // ordered_set <pair<T, T>> a; (ordered set of pairs (can also work as ordered_map))
@@ -65,9 +78,11 @@ template <class T> using multi_ordered_set = tree<T, null_type, less_equal<T>, r
 
 
 /*--------------------------------------------------------------Debugger--------------------------------------------------------------*/
+
 #define test(i)                                     cout << "(#" << i << ")" << endl
 
-#ifndef ONLINE_JUDGE
+// #ifndef ONLINE_JUDGE
+#ifdef XAVIERBEAST
 #define dbg(x)                                      cerr << #x<<" "; _print(x); cerr << endl;
 #else
 #define dbg(x);
@@ -95,7 +110,9 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 // void _print(ordered_set v) {cerr << "[ "; for (int i=0 ; i<(int)v.size();i++) {_print(v.find_by_order(i)); cerr << " ";} cerr << "]";}
 
+
 /*------------------------------------------------------Functions------------------------------------------------------*/
+
 ll gcd(ll a, ll b)                                  {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 ll lcm(ll a, ll b)                                  {return a / gcd(a, b) * b;}
 ll countDigit(ll n)                                 {return (floor(log10(n) + 1));}
@@ -115,6 +132,7 @@ ll mod_sub(ll a, ll b)                              {a = a % MOD; b = b % MOD; r
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll getRandomNumber(ll l, ll r)                      {return uniform_int_distribution<ll>(l, r)(rng); }
 
+
 /*-------------------------------------------------------||||||||||-----------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------
                                         +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+
@@ -133,12 +151,12 @@ signed main()
     fastio;
 
     cout << fixed << setprecision(10);
-
+    // file_io();
     auto start = high_resolution_clock::now();
 
     /*testcases=1: default value for single test case*/
     int testcases = 1;
-    //cin >> t;
+    //cin >> testcases;
     while (testcases--)
     {
         solve();
@@ -146,7 +164,8 @@ signed main()
 
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
-    #ifndef ONLINE_JUDGE
+    // #ifndef ONLINE_JUDGE
+    #ifdef XAVIERBEAST
         cerr << endl << "Time: " << (float)duration.count()/1000000 << " s" << endl;
     #endif
 

@@ -49,14 +49,14 @@ constexpr ll mod1                                   = 998244353;
 /*------------------------------------------------------Read & Print Methods------------------------------------------------------*/
 
 #define read(x)                                     int x; cin >> x; // reads long long
-#define readstr(x)                                  string s; cin >> s; // reads string
+#define readstr(x)                                  string s; cin >> s; // reads string(word)
+#define readLine(x)                                 string s; getline(cin,s); // reads string(sentence)
 #define print(x)                                    cout<<(x)
 #define println(x)                                  cout<<(x)<<endl
 
 // Vector Read & Print ->
-template <class T> vector<T> readvector(T n) { vector<T> arr(n); for (int i = 0; i < n; i++) {cin >> arr[i];} return arr;} // vector<ll> arr = readvector(n);
-template <class T> void printvector(vector<T> arr, T n) {for (int i = 0; i < n; i++) {cout << arr[i] << " ";} cout << endl;}
-
+template <class T> vector<T> readvector(T n) { vector<T> arr(n); for (int i = 0; i < n; i++) {cin >> arr[i];} return arr;}   // vector<ll> arr = readvector(n);
+template <class T> void printvector(vector<T> arr, T n) {for (int i = 0; i < n; i++) {cout << arr[i] << " ";} cout << endl;}   // printvector(arr, n);
 //InputOutputError_From/To_File ->
 void file_io()
 {
@@ -78,6 +78,9 @@ template <class T> using multi_ordered_set = tree<T, null_type, less_equal<T>, r
 
 
 /*--------------------------------------------------------------Debugger--------------------------------------------------------------*/
+//            [di:b^b-ing]
+// -Being the detective in a crime
+//  where you are also the murderer.
 
 #define test(i)                                     cout << "(#" << i << ")" << endl
 

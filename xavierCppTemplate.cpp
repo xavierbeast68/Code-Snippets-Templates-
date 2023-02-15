@@ -51,7 +51,7 @@ constexpr ll mod1                                   = 998244353;
 #define read(x)                                     int x; cin >> x; // reads long long
 #define readstr(x)                                  string s; cin >> s; // reads string(word)
 #define readLine(x)                                 string s; getline(cin,s); // reads string(sentence)
-#define print(x)                                    cout<<(x)
+#define print(x)                                    cout<<(x)<<" "
 #define println(x)                                  cout<<(x)<<endl
 
 // Vector Read & Print ->

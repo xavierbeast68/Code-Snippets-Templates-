@@ -28,8 +28,8 @@ constexpr ll mod1                                   = 998244353;
 
 #define FOR(i,a,b)                                  for(int i = a; i < b; ++i)
 #define read(x)                                     int x; cin >> x;
-#define readstr(x)                                  string s; cin >> s;
-#define readLine(x)                                 string s; getline(cin,s);
+#define readstr(x)                                  string x; cin >> x;
+#define readLine(x)                                 string x; getline(cin, x);
 #define print(x)                                    cout<<(x)<<" "
 #define println(x)                                  cout<<(x)<<endl
 

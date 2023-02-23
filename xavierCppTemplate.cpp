@@ -49,8 +49,8 @@ constexpr ll mod1                                   = 998244353;
 /*------------------------------------------------------Read & Print Methods------------------------------------------------------*/
 
 #define read(x)                                     int x; cin >> x; // reads long long
-#define readstr(x)                                  string s; cin >> s; // reads string(word)
-#define readLine(x)                                 string s; getline(cin,s); // reads string(sentence)
+#define readstr(x)                                  string x; cin >> x; // reads string(word)
+#define readLine(x)                                 string x; getline(cin, x); // reads string(sentence)
 #define print(x)                                    cout<<(x)<<" "
 #define println(x)                                  cout<<(x)<<endl
 

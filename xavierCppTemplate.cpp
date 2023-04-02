@@ -124,6 +124,7 @@ ll isPowerof2(ll x)                                 {return (x && !(x & (x - 1))
 bool is_whole(ll a)                                 {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)                          {if (p <= 1) {return 1;} return p * factorial(p - 1);}
 bool isPrime(ll n)                                  {if (n == 2 || n == 3) {return true;} if (n <= 1 || n % 2 == 0 || n % 3 == 0) {return false;} for (int i = 5; i * i <= n; i += 6) { if (n % i == 0 || n % (i + 2) == 0) {return false;}} return true;}
+double nCr(ll n, ll r)                                  {double sum = 1; for(int i = 1; i <= r; ++i){sum = sum * (n - r + i) / i;} return sum;}
 ll binpow(ll a , ll b)                              {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % MOD, b / 2);} else {return (a * binpow((a * a) % MOD, b / 2)) % MOD;}}    // binary exponentiation
 
 ll mod(ll x)                                        {return (((x) % MOD + MOD) % MOD);}

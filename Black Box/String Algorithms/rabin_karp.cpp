@@ -1,7 +1,7 @@
-vector<int> rabin_karp(string const& s, string const& t) {
+vector<int> rabin_karp(string const& str, string const& pattern) {
     const int p = 31; 
     const int m = 1e9 + 9;
-    int S = s.size(), T = t.size();
+    int S = pattern.size(), T = str.size();
 
     vector<long long> p_pow(max(S, T)); 
     p_pow[0] = 1; 
@@ -10,10 +10,10 @@ vector<int> rabin_karp(string const& s, string const& t) {
 
     vector<long long> h(T + 1, 0); 
     for (int i = 0; i < T; i++)
-        h[i+1] = (h[i] + (t[i] - 'a' + 1) * p_pow[i]) % m; 
+        h[i+1] = (h[i] + (str[i] - 'a' + 1) * p_pow[i]) % m; 
     long long h_s = 0; 
     for (int i = 0; i < S; i++) 
-        h_s = (h_s + (s[i] - 'a' + 1) * p_pow[i]) % m; 
+        h_s = (h_s + (pattern[i] - 'a' + 1) * p_pow[i]) % m; 
 
     vector<int> occurences;
     for (int i = 0; i + S - 1 < T; i++) { 

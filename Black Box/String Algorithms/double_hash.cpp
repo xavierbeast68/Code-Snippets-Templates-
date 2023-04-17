@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
 struct Hash
 {
@@ -40,11 +40,11 @@ struct Hash
     }
 };
 
-int main()
-{
-    const string s = "geeksforgeeks";
-    Hash h(s);
-    cout << "Hash values of " << s << " are: ";
-    cout << "(" << h.hash1 << ", " << h.hash2 << ")" << '\n';
-    return 0;
-}
+// int main()
+// {
+//     const string s = "xyz";
+//     Hash h(s);
+//     cout << "Hash values of " << s << " are: ";
+//     cout << "(" << h.hash1 << ", " << h.hash2 << ")" << '\n';
+//     return 0;
+// }

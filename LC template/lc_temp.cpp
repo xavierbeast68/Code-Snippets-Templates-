@@ -25,6 +25,7 @@ using namespace chrono;
 
 #define fastio                                      ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define endl                                        '\n'
+#define int                                         long long
 using ll                                            = long long;
 using ull                                           = unsigned long long;
 using lld                                           = long double;
@@ -111,12 +112,13 @@ template <class T> void _print(multiset <T> v);
 
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T> void _print(deque <T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(unordered_set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(deque <T> v) { cerr << "[ "; for (T i : v) { _print(i); cerr << " "; } cerr << "]";}
+template <class T> void _print(stack <T> v) { cerr << "[ "; while(!v.empty()) { _print(v.top()); v.pop(); cerr << " "; } cerr << "]";}
 
 /*------------------------------------------------------Functions------------------------------------------------------*/
 
@@ -209,7 +211,6 @@ int dy[] = { 1,0,-1,0 };
 ------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------||||||||||------------------------------------------------------------------------*/
 
-#define int                                         long long
 
 /*
 ! THINGS TO KEEP IN MIND BEFORE SUBMITTTING
@@ -242,7 +243,7 @@ void solve(){
     // Let's Code
     // read parameters
     Solution obj;
-    auto ans //= obj.function_name(parameters) ;
+    auto ans //= obj.function_name(parameters);
     cout << ans << endl;
 }
 

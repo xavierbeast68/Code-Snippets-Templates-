@@ -22,6 +22,7 @@ using namespace chrono;
 
 #define fastio                                      ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define endl                                        '\n'
+#define int                                         long long
 using ll                                            = long long;
 using ull                                           = unsigned long long;
 using lld                                           = long double;
@@ -106,7 +107,6 @@ template <class T> void printvector(vector<T> arr, T n) {for (int i = 0; i < n; 
 ------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------||||||||||------------------------------------------------------------------------*/
 
-#define int                                         long long
 
 /*
 ! THINGS TO KEEP IN MIND BEFORE SUBMITTTING

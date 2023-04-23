@@ -23,6 +23,7 @@ using namespace chrono;
 
 #define fastio                                      ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define endl                                        '\n'
+#define cendl                                       cout << endl;
 #define int                                         long long
 using ll                                            = long long;
 using ull                                           = unsigned long long;
@@ -63,8 +64,9 @@ constexpr lld PI                                    = 3.1415926535897932384626;
 
 /*------------------------------------------------------Read & Print Methods------------------------------------------------------*/
 
-#define read(x)                                     int x; cin >> x; // reads long long
-#define readstr(x)                                  string x; cin >> x; // reads string(word)
+#define read(x)                                     cin >> x;    
+#define readInt(x)                                  int x; cin >> x; // reads long long
+#define readStr(x)                                  string x; cin >> x; // reads string(word)
 #define readLine(x)                                 string x; getline(cin, x); // reads string(sentence)
 #define print(x)                                    cout<<(x)<<" "
 #define println(x)                                  cout<<(x)<<endl
@@ -157,10 +159,6 @@ int dy[] = { 1,0,-1,0 };
 * Look for Possible Edge Cases
 * int overflows, array bounds, etc.
 * https://oeis.org/ Sequence Related Problem
-* a+b=a|b+a&b
-* a+b=a^b+2*(a&b)
-* DO NOT GET STUCK ON ONE APPROACH
-* DO NOT GET STUCK ON ONE APPROACH
 * DO NOT GET STUCK ON ONE APPROACH
 */
 

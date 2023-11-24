@@ -70,7 +70,7 @@ void _print(int t) {cerr << t;}
 // void _print(long long t) {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t) {cerr << t;}
-void _print(ld t) {cerr << t;}
+void _print(long double t) {cerr << t;}
 void _print(double t) {cerr << t;}
 
 template <class T, class V> void _print(pair <T, V> p);

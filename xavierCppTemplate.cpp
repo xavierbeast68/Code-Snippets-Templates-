@@ -159,7 +159,18 @@ ll isPowerof2(ll x)                                 {return (x && !(x & (x - 1))
 bool is_whole(ll a)                                 {return (a - floor(a) < 1e-9);} // floor(a)==ceil(a)
 ll factorial(const int& p)                          {if (p <= 1) {return 1;} return p * factorial(p - 1);}
 double nCr(ll n, ll r)                              {double sum = 1; for(int i = 1; i <= r; ++i){sum = sum * (n - r + i) / i;} return sum;}
-ll binpow(ll a , ll b,ll mod)                       {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % mod, b / 2, mod);} else {return (a * binpow((a * a) % mod, b / 2, mod)) % mod;}}    // binary exponentiation
+// ll binpow(ll a , ll b,ll mod)                       {if (b == 0) {return 1;} if (b == 1) {return a;} if (b % 2 == 0) {return binpow((a * a) % mod, b / 2, mod);} else {return (a * binpow((a * a) % mod, b / 2, mod)) % mod;}}    // binary exponentiation
+long long binpow(long long a, long long b, long long m) {
+    a %= m;
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
 ll mod_inv(ll x, ll mod)                            {return binpow(x, mod-2, mod);}    
 
 ll _mod(ll x, ll mod)                               {return (((x) % mod + mod) % mod);}

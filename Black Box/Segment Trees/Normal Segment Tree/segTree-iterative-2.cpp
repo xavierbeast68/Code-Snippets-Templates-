@@ -87,47 +87,47 @@ public:
     
     void build_tree () {
     	build_util();
-    	
-    	// debugging
-        // for(auto node : tree) cout << node.val << " ";
-        // cout << endl;
     }
     
     void make_update (int index, long long value) {
     	Update u = Update(value);
     	update_util(index, u);
-    	
-    	// debugging
-        // for(auto node : tree) cout << node.val << " ";
-        // cout << endl;
     }
     
     Node make_query (int left, int right) {
     	return query_util(left, right);
-    	
-    	// debugging
-        // for(auto node : tree) cout << node.val << " ";
-        // cout << endl;
     }
     
     void debug(){
-        for(auto node : tree) cout << node.val << " ";
-        cout << endl;
+        // for(auto node : tree) cout << node.val << " ";
+        // cout << endl;
     }
 };
 
+// Make Changes Here------------------------------------------------
 struct Node {
+    // long long sum;
+    // int mx, mn;
     long long val; // type may change
     
     Node(){ // identity or default element
+    	// sum = 0;
+    	// mx = -1e9;
+    	// mn = 1e9;
     	val = 0; // may change
     }
     
     Node(long long val1){ // Actual node
+    	// sum = val1;
+    	// mx = val1;
+    	// mn = val1;
     	val = val1; // may change
     }
     
     void merge (Node &left, Node &right) { // merge two child nodes
+    	// sum = left.sum + right.sum;
+    	// mx = max(left.mx, right.mx);
+    	// mn = min(left.mn, right.mn);
     	val = left.val + right.val; // operation may change
     }
 };
@@ -141,6 +141,9 @@ struct Update {
 	}
 	
 	void apply (Node &node) {
+		// node.sum = val;
+		// node.mn = val;
+		// node.mx = val;
 		node.val = val; // may change
 	}
 };

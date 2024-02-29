@@ -84,25 +84,19 @@ public:
     // to initialize seg tree
     void build_tree () {
     	build();
-    	
-    	// debugging
-        // for(auto node : tree) cout << node.val << " ";
-        // cout << endl;
     }
     
     void make_update (int index, long long value) {
     	Update u = Update(value);
     	update(index, u);
-    	
-    	// debugging
-        // for(auto node : tree) cout << node.val << " ";
-        // cout << endl;
     }
     
     Node make_query (int left, int right) {
     	return query(left, right);
-    	
-    	// debugging
+    }
+    
+    void debug_sgt(){
+        // debugging
         // for(auto node : tree) cout << node.val << " ";
         // cout << endl;
     }

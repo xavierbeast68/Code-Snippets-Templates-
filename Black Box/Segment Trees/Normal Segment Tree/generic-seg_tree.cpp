@@ -21,11 +21,12 @@ private:
     		tree[index] = Node(arr[start]);
     		return;
     	}
-    	int mid = (start + end) / 2;
-    	int leftInd = 2 * index, rightInd = 2 * index + 1;
+    	int mid = (start + end) / 2; // (start+end)>>1
+    	int leftInd = 2 * index, rightInd = 2 * index + 1; // leftInd = index << 1, rightInd = (index << 1) + 1;
     	build(start, mid, leftInd);
     	build(mid + 1, end, rightInd);
     	tree[index].merge(tree[leftInd], tree[rightInd]);
+    	// tree[index] = tree[leftInd] + tree[rightInd];
     }
 	
 	void update (int start, int end, int index, int query_index, Update &u) {
@@ -58,6 +59,7 @@ private:
 		Node leftItem = query(start, mid, leftInd, left, right);
 		Node rightItem = query(mid + 1, end, rightInd, left, right);
 		res.merge(leftItem, rightItem);
+		// res = leftItem + rightItem;
 		return res;
 	}
 	
@@ -137,6 +139,16 @@ struct Node {
     	// mn = min(left.mn, right.mn);
     	val = left.val + right.val; // operation may change
     }
+    // overloading + operator
+    // Node operator + (Node &other) { // merge two child nodes
+    // 	Node ans;
+    // 	// ans.sum = sum + other.sum;
+    // 	// ans.mx = max(mx, other.mx);
+    // 	// ans.mn = min(mn, other.mn);
+    // 	ans.val = val + other.val; // operation may change
+    	
+    // 	return ans;
+    // }
 };
 
 struct Update {

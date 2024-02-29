@@ -99,6 +99,7 @@ public:
     }
     
     void debug(){
+    	// debugging
         // for(auto node : tree) cout << node.val << " ";
         // cout << endl;
     }

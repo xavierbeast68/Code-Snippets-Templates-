@@ -25,8 +25,8 @@ private:
     	}
     	int mid = (start + end) / 2;
     	int leftInd = 2 * index + 1, rightInd = 2 * index + 2;
-    	build(start, mid, leftInd, arr);
-    	build(mid + 1, end, rightInd, arr);
+    	build(start, mid, leftInd);
+    	build(mid + 1, end, rightInd);
     	tree[index].merge(tree[leftInd], tree[rightInd]);
     }
 	
@@ -50,8 +50,8 @@ private:
 		int leftInd = 2 * index + 1, rightInd = 2 * index + 2;
 		
 		// apply updates on the left and right child of the current node
-		apply(updates[index], start, mid, leftInd);
-		apply(updates[index], mid + 1, end, rightInd);
+		apply(start, mid, leftInd, updates[index]);
+        apply(mid + 1, end, rightInd, updates[index]);
 		
 		// set to default update, as no updates are pending for current node now
 		updates[index] = Update();
@@ -111,6 +111,20 @@ public:
 	LazySegmentTree () {
 		
 	}
+	
+	LazySegmentTree (int n) {
+    	arr.resize(n, 0);
+        size = n;
+        tree.resize(4 * size + 1);
+        lazy.resize(4 * size + 1);
+        updates.resize(4 * size + 1);
+        
+        fill(begin(tree), end(tree), Node());
+        fill(begin(lazy), end(lazy), 0);
+        fill(begin(updates), end(updates), Update());
+        
+        build_tree();
+    }
     
     LazySegmentTree (vector<T> &a) {
     	arr = a;

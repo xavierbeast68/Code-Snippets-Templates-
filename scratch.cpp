@@ -30,14 +30,7 @@ template<class T> using v = vector<T>;
 template<class T>istream& operator>>(istream &in, vector<T> &a){for(auto &i: a){in >> i;} return in;}
 template<class T>ostream& operator<<(ostream &os, vector<T> &a){int sz = a.size();for(int i = 0 ; i < sz; ++i){os << a[i] << " \n"[i==sz-1];}return os;}
 
-// <---------- Global Variables ---------->
-int n;
-v<int> vec;
-string s;
-
-// <-------------------------- Helper Functions -------------------------->
-
-// <-------------------------- Solve Function -------------------------->
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*
     *Thought Process*
@@ -45,11 +38,21 @@ string s;
     
 */
 
+// <---------- Global Variables ---------->
+int n;
+v<int> vec;
+string s;
+
+// <---------- Helper Functions ---------->
+
+// <---------- Solve Function ---------->
+
 void solve(){
 
 }
 
 // <-------------------------- Main -------------------------->
+
 signed main(){
     
     JULI; // FAST_IO

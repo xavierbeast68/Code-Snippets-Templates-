@@ -15,6 +15,7 @@ void SieveOfEratosthenes(int n)
                 prime[i] = false;
         }
     }
+    prime[0] = prime[1] = false;
     for (int p = 2; p <= n; p++){
         if (prime[p]){
             stored_prime.push_back(p);

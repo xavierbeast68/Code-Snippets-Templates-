@@ -19,15 +19,15 @@ private:
 	// root index is 1
 	// to change it to 0, leftInd = 2*index+1, rightInd = 2*index+2
     void build (int start, int end, int index) {
-    	if(start == end) {
-    		tree[index] = Node(arr[start]);
-    		return;
-    	}
-    	int mid = (start + end) / 2;
+		if(start == end) {
+			tree[index] = Node(arr[start]);
+			return;
+		}
+		int mid = (start + end) / 2;
     	int leftInd = 2 * index + 1, rightInd = 2 * index + 2;
-    	build(start, mid, leftInd);
-    	build(mid + 1, end, rightInd);
-    	tree[index].merge(tree[leftInd], tree[rightInd]);
+		build(start, mid, leftInd);
+		build(mid + 1, end, rightInd);
+		tree[index].merge(tree[leftInd], tree[rightInd]);
     }
 	
 	void apply (int start, int end, int index, Update &u) {
@@ -113,7 +113,7 @@ public:
 	}
 	
 	LazySegmentTree (int n) {
-    	arr.resize(n, 0);
+		arr.resize(n, 0);
         size = n;
         tree.resize(4 * size + 1);
         lazy.resize(4 * size + 1);
@@ -127,18 +127,18 @@ public:
     }
     
     LazySegmentTree (vector<T> &a) {
-    	arr = a;
-    	size = arr.size();
-    	
-    	tree.resize(4 * size + 1);
-    	lazy.resize(4 * size + 1);
-    	updates.resize(4 * size + 1);
-    	
-    	fill(begin(tree), end(tree), Node());
-    	fill(begin(lazy), end(lazy), 0);
-    	fill(begin(updates), end(updates), Update());
-    	
-    	build_tree();
+		arr = a;
+		size = arr.size();
+
+		tree.resize(4 * size + 1);
+		lazy.resize(4 * size + 1);
+		updates.resize(4 * size + 1);
+
+		fill(begin(tree), end(tree), Node());
+		fill(begin(lazy), end(lazy), 0);
+		fill(begin(updates), end(updates), Update());
+
+		build_tree();
     }
     
     LazySegmentTree (int n, vector<T> &a){
@@ -156,25 +156,25 @@ public:
         tree.resize(4 * size + 1);
     	lazy.resize(4 * size + 1);
     	updates.resize(4 * size + 1);
-    	
-    	fill(begin(tree), end(tree), Node());
-    	fill(begin(lazy), end(lazy), 0);
-    	fill(begin(updates), end(updates), Update());
+
+		fill(begin(tree), end(tree), Node());
+		fill(begin(lazy), end(lazy), 0);
+		fill(begin(updates), end(updates), Update());
         
         build_tree();
     }
     
     void build_tree () {
-    	build(0, size - 1, 0);
+		build(0, size - 1, 0);
     }
     
     void make_update (int left, int right, long long value) {
-    	Update u = Update(value);
-    	return update(0, size - 1, 0, left, right, u);
+		Update u = Update(value);
+		return update(0, size - 1, 0, left, right, u);
     }
     
     Node make_query (int left, int right) {
-    	return query(0, size - 1, 0, left, right);
+		return query(0, size - 1, 0, left, right);
     }
     
     void debug_sgt(){
